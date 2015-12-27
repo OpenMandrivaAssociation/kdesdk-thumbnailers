@@ -6,15 +6,13 @@ Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
 Url:		http://www.kde.org
-%define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
-%if %{is_beta}
-%define ftpdir unstable
-%else
-%define ftpdir stable
-%endif
 Source0:	http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	gettext-devel
-BuildRequires:	kdelibs4-devel
+BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(KF5Config)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5KIO)
+BuildRequires:	pkgconfig(Qt5Widgets)
 Requires:	gettext
 Conflicts:	kde-thumbnailer-po < 1:4.11.0
 Obsoletes:	kde-thumbnailer-po < 1:4.11.0
@@ -23,19 +21,15 @@ Obsoletes:	kde-thumbnailer-po < 1:4.11.0
 A preview image generator plugin for gettext translations and templates.
 
 %files
-%{_libdir}/kde4/pothumbnail.so
-%{_datadir}/config.kcfg/pocreatorsettings.kcfg
-%{_kde_services}/pothumbnail.desktop
 
 #----------------------------------------------------------------------------
 
 %prep
 %setup -q
+%cmake_kde5
 
 %build
-%cmake_kde4 -DCMAKE_MINIMUM_REQUIRED_VERSION=2.6
-%make
+%ninja -C build
 
 %install
-%makeinstall_std -C build
-
+%ninja_install -C build
