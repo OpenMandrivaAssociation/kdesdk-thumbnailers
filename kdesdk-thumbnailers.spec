@@ -21,6 +21,9 @@ Obsoletes:	kde-thumbnailer-po < 1:4.11.0
 A preview image generator plugin for gettext translations and templates.
 
 %files
+%{_libdir}/qt5/plugins/pothumbnail.so
+%{_datadir}/config.kcfg/pocreatorsettings.kcfg
+%{_datadir}/kservices5/pothumbnail.desktop
 
 #----------------------------------------------------------------------------
 
