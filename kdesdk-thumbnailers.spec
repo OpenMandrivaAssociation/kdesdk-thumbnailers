@@ -1,7 +1,7 @@
 Summary:	A preview image generator plugin for gettext translations and templates
 Name:		kdesdk-thumbnailers
-Version:	15.12.0
-Release:	2
+Version:	15.12.1
+Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
