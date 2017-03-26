@@ -1,12 +1,13 @@
 Summary:	A preview image generator plugin for gettext translations and templates
 Name:		kdesdk-thumbnailers
-Version:	16.12.2
+Version:	17.03.80
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
 Url:		http://www.kde.org
-Source0:	http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
+Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	gettext-devel
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5Config)
