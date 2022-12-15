@@ -1,6 +1,6 @@
 Summary:	A preview image generator plugin for gettext translations and templates
 Name:		kdesdk-thumbnailers
-Version:	22.08.3
+Version:	22.12.0
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -22,9 +22,8 @@ Obsoletes:	kde-thumbnailer-po < 1:4.11.0
 A preview image generator plugin for gettext translations and templates.
 
 %files -f pothumbnail.lang
-%{_libdir}/qt5/plugins/pothumbnail.so
 %{_datadir}/config.kcfg/pocreatorsettings.kcfg
-%{_datadir}/kservices5/pothumbnail.desktop
+%{_libdir}/qt5/plugins/kf5/thumbcreator/pothumbnail.so
 
 #----------------------------------------------------------------------------
 
