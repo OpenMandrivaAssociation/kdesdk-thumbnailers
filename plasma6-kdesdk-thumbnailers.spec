@@ -1,12 +1,19 @@
+%define git 20240218
+%define gitbranch release/24.02
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 Summary:	A preview image generator plugin for gettext translations and templates
 Name:		plasma6-kdesdk-thumbnailers
-Version:	24.01.95
-Release:	1
+Version:	24.01.96
+Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
 Url:		http://www.kde.org
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
+%if 0%{?git:1}
+Source0:	https://invent.kde.org/sdk/kdesdk-thumbnailers/-/archive/%{gitbranch}/kdesdk-thumbnailers-%{gitbranchd}.tar.bz2#/kdesdk-thumbnailers-%{git}.tar.bz2
+%else
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/kdesdk-thumbnailers-%{version}.tar.xz
+%endif
 BuildRequires:	gettext-devel
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF6Config)
@@ -25,7 +32,7 @@ A preview image generator plugin for gettext translations and templates.
 #----------------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n kdesdk-thumbnailers-%{?git:master}%{!?git:%{version}}
+%autosetup -p1 -n kdesdk-thumbnailers-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DQT_MAJOR_VERSION=6 \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
