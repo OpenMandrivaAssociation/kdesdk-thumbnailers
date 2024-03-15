@@ -4,7 +4,7 @@
 Summary:	A preview image generator plugin for gettext translations and templates
 Name:		plasma6-kdesdk-thumbnailers
 Version:	24.02.0
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 Group:		Graphical desktop/KDE
 License:	GPLv2+
 Url:		http://www.kde.org
