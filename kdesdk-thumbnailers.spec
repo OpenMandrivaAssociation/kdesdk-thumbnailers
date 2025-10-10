@@ -3,7 +3,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 Summary:	A preview image generator plugin for gettext translations and templates
 Name:		kdesdk-thumbnailers
-Version:	25.08.1
+Version:	25.08.2
 Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
