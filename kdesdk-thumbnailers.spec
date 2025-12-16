@@ -3,8 +3,8 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 Summary:	A preview image generator plugin for gettext translations and templates
 Name:		kdesdk-thumbnailers
-Version:	25.08.3
-Release:	%{?git:0.%{git}.}2
+Version:	25.12.0
+Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
 Url:		https://www.kde.org
@@ -31,6 +31,5 @@ BuildOption:	-DQT_MAJOR_VERSION=6
 %description
 A preview image generator plugin for gettext translations and templates.
 
-%files -f %{name}.lang
-%{_datadir}/config.kcfg/pocreatorsettings.kcfg
+%files
 %{_libdir}/qt6/plugins/kf6/thumbcreator/pothumbnail.so
